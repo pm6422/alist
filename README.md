@@ -37,6 +37,7 @@ Wait for DNS propagation (usually 5-60 minutes).
 ### 3. Run Deployment Script
 
 ```bash
+
 # Make script executable
 chmod +x deploy.sh
 
@@ -52,7 +53,14 @@ The script will automatically:
 - Start all services
 - Configure SSL certificates
 
-### 4. Access Your Service
+### 5. Set password
+```bash
+
+docker exec -it alist ./alist admin set NEW_PASSWORD
+```
+
+### 5. Access Your Service
 Once deployment completes, access your Alist instance at:
 
 https://alist.yourdomain.com
+

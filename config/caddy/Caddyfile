@@ -3,9 +3,20 @@ alist.pm6422.site {
     reverse_proxy alist:5244
 }
 
-# S-UI service with SSL termination
+# S-UI web admin
 us.pm6422.site {
     reverse_proxy s-ui:2095 {
         header_up X-Forwarded-Proto https
+        header_up X-Forwarded-Host {host}
+        header_up X-Real-IP {remote}
+    }
+}
+
+# S-UI service port (2096)
+sub.us.pm6422.site {
+    reverse_proxy s-ui:2096 {
+        header_up X-Forwarded-Proto https
+        header_up X-Forwarded-Host {host}
+        header_up X-Real-IP {remote}
     }
 }

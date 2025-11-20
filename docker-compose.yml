@@ -11,7 +11,7 @@ services:
       - ./config/caddy/data:/data
       - ./config/caddy/config:/config
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:5244" ]
+      test: ["CMD", "caddy", "health"]
       interval: 5s
       timeout: 5s
       retries: 40

@@ -15,7 +15,7 @@ services:
       alist:
         condition: service_healthy
   alist:
-    image: alist666/alist:latest
+    image: xhofe/alist:latest
     container_name: alist
 #   移除端口映射到宿主机，通过Caddy内部网络访问
 #    ports:

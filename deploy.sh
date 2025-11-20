@@ -34,31 +34,6 @@ check_root() {
     fi
 }
 
-# Check system requirements
-check_system() {
-    log_info "Checking system requirements..."
-
-    # Check memory
-    local mem_total=$(grep MemTotal /proc/meminfo | awk '{print $2}')
-    local mem_gb=$((mem_total / 1024 / 1024))
-
-    if [ $mem_gb -lt 1 ]; then
-        log_warn "Low memory detected: ${mem_gb}GB (Recommended: 2GB+)"
-    else
-        log_info "Memory: ${mem_gb}GB"
-    fi
-
-    # Check disk space
-    local disk_free=$(df / | awk 'NR==2 {print $4}')
-    local disk_gb=$((disk_free / 1024 / 1024))
-
-    if [ $disk_gb -lt 5 ]; then
-        log_warn "Low disk space: ${disk_gb}GB free (Recommended: 10GB+ free)"
-    else
-        log_info "Disk space: ${disk_gb}GB free"
-    fi
-}
-
 # Install Docker and Docker Compose
 install_docker() {
     if command -v docker &> /dev/null && docker compose version &> /dev/null; then
@@ -97,28 +72,6 @@ create_directories() {
     chmod 755 config/caddy/{data,config}
 
     log_info "Directories created successfully"
-}
-
-# Check if Caddyfile exists, create if missing
-create_caddyfile() {
-    local caddyfile_path="config/caddy/Caddyfile"
-
-    if [ -f "$caddyfile_path" ]; then
-        log_info "Caddyfile already exists, skipping creation"
-        return
-    fi
-
-    log_info "Creating Caddyfile configuration..."
-
-    mkdir -p config/caddy
-    cat > "$caddyfile_path" << 'EOF'
-# Alist service
-alist.pm6422.site {
-    reverse_proxy alist:5244
-}
-EOF
-
-    log_info "Caddyfile created successfully"
 }
 
 # Deploy services
@@ -216,10 +169,8 @@ main() {
     log_info "Starting deployment process..."
 
     check_root
-    check_system
     install_docker
     create_directories
-    create_caddyfile
     deploy_services
     health_check
     show_info

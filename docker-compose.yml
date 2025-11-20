@@ -10,6 +10,11 @@ services:
       - ./config/caddy/Caddyfile:/etc/caddy/Caddyfile
       - ./config/caddy/data:/data
       - ./config/caddy/config:/config
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:5244" ]
+      interval: 5s
+      timeout: 5s
+      retries: 40
     restart: always
     depends_on:
       alist:

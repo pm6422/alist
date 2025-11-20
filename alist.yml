@@ -13,6 +13,11 @@ services:
       - PGID=0
       - UMASK=022
       - TZ=Asia/Shanghai
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:5244" ]
+      interval: 5s
+      timeout: 5s
+      retries: 40
     restart: unless-stopped
   caddy:
     image: caddy:latest
@@ -26,5 +31,6 @@ services:
       - ./config/caddy/config:/config
     restart: always
     depends_on:
-      - alist
+      alist:
+        condition: service_healthy
 

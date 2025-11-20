@@ -14,12 +14,15 @@ services:
     depends_on:
       alist:
         condition: service_healthy
+      s-ui:
+        condition: service_started
+
   alist:
     image: xhofe/alist:latest
     container_name: alist
 #   Remove the port mapping to the host and access it through Caddy’s internal network
-#    ports:
-#      - 5244:5244
+#   ports:
+#     - 5244:5244
     volumes:
       - ./config/alist:/opt/alist/data
     environment:
@@ -34,3 +37,12 @@ services:
       retries: 40
     restart: unless-stopped
 
+  s-ui:
+    image: alireza7/s-ui
+    container_name: s-ui
+    volumes:
+      - "./config/sui/db:/app/db"
+      - "./config/sui/cert:/app/cert"
+    hostname: "s-ui"
+    restart: unless-stopped
+    entrypoint: "./entrypoint.sh"

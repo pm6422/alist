@@ -1,5 +1,9 @@
+# Alist service
 alist.pm6422.site {
     reverse_proxy alist:5244
 }
 
-
+# S-UI service
+us.pm6422.site {
+    reverse_proxy s-ui:2095
+}

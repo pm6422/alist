@@ -53,7 +53,7 @@ The script will automatically:
 - Start all services
 - Configure SSL certificates
 
-### 5. Set password
+### 5. Set password of admin user
 ```bash
 
 docker exec -it alist ./alist admin set NEW_PASSWORD

@@ -41,8 +41,8 @@ services:
     image: alireza7/s-ui:v1.3.7
     container_name: s-ui
     volumes:
-      - "./config/sui/db:/app/db"
-      - "./config/sui/cert:/app/cert"
+      - ./config/s-ui/db:/app/db
+      - ./config/s-ui/cert:/app/cert
+    entrypoint: "./entrypoint.sh"
     hostname: "s-ui"
     restart: unless-stopped
-    entrypoint: "./entrypoint.sh"

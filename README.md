@@ -64,3 +64,9 @@ Once deployment completes, access your Alist instance at:
 
 https://alist.yourdomain.com
 
+
+### 6. Restart a Service
+```bash
+
+docker compose restart caddy
+```

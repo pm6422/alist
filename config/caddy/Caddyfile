@@ -3,7 +3,10 @@ alist.pm6422.site {
     reverse_proxy alist:5244
 }
 
-# S-UI service
+# S-UI service with SSL termination
 us.pm6422.site {
-    reverse_proxy s-ui:2095
+    reverse_proxy s-ui:2095 {
+        # 如果需要传递协议信息
+        header_up X-Forwarded-Proto https
+    }
 }

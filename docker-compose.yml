@@ -38,7 +38,7 @@ services:
     restart: unless-stopped
 
   s-ui:
-    image: alireza7/s-ui
+    image: alireza7/s-ui:v1.3.7
     container_name: s-ui
     volumes:
       - "./config/sui/db:/app/db"

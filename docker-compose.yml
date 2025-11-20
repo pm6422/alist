@@ -17,7 +17,7 @@ services:
   alist:
     image: xhofe/alist:latest
     container_name: alist
-#   移除端口映射到宿主机，通过Caddy内部网络访问
+#   Remove the port mapping to the host and access it through Caddy’s internal network
 #    ports:
 #      - 5244:5244
     volumes:
@@ -27,10 +27,10 @@ services:
       - PGID=0
       - UMASK=022
       - TZ=Asia/Shanghai
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:5244" ]
-      interval: 5s
-      timeout: 5s
-      retries: 40
+#    healthcheck:
+#      test: [ "CMD", "curl", "-f", "http://localhost:5244" ]
+#      interval: 5s
+#      timeout: 5s
+#      retries: 40
     restart: unless-stopped
 

@@ -3,8 +3,9 @@ services:
   alist:
     image: alist666/alist:latest
     container_name: alist
-    ports:
-      - 5244:5244
+#   移除端口映射到宿主机，通过Caddy内部网络访问
+#    ports:
+#      - 5244:5244
     volumes:
       - ./config/alist:/opt/alist/data
     environment:
@@ -24,4 +25,6 @@ services:
       - ./config/caddy/data:/data
       - ./config/caddy/config:/config
     restart: always
+    depends_on:
+      - alist
 

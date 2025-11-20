@@ -10,6 +10,7 @@ services:
       - ./config/caddy/Caddyfile:/etc/caddy/Caddyfile
       - ./config/caddy/data:/data
       - ./config/caddy/config:/config
+      - /mnt/nas/share:/alist/nas-share:rw
     restart: always
     depends_on:
       alist:

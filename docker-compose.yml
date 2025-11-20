@@ -43,6 +43,6 @@ services:
     volumes:
       - ./config/s-ui/db:/app/db
       - ./config/s-ui/cert:/app/cert
-    entrypoint: "./entrypoint.sh"
-    hostname: "s-ui"
+    entrypoint: ./entrypoint.sh
+    hostname: s-ui
     restart: unless-stopped

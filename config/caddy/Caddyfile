@@ -1,4 +1,3 @@
-# alist
 alist.pm6422.site {
     reverse_proxy alist:5244
 }

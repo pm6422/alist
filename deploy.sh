@@ -139,7 +139,7 @@ show_info() {
     echo "  # Restart services"
     echo "  docker compose restart"
     echo ""
-    echo "  # Update services"
+    echo "  # Update services to latest version"
     echo "  docker compose pull && docker compose up -d"
     echo ""
     echo "Important Notes:"

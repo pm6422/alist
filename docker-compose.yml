@@ -8,8 +8,8 @@ services:
       - "443:443"
     volumes:
       - "./config/caddy/Caddyfile:/etc/caddy/Caddyfile"
-      - "./config/caddy/data:/data"
       - "./config/caddy/config:/config"
+      - "./config/caddy/data:/data"
     restart: always
     depends_on:
       alist:
@@ -20,6 +20,9 @@ services:
   alist:
     image: xhofe/alist:latest
     container_name: alist
+#   Remove the port mapping to the host and access it through Caddy’s internal network
+#   ports:
+#     - 5244:5244
     volumes:
       - "./config/alist:/opt/alist/data"
     environment:
@@ -40,7 +43,7 @@ services:
     volumes:
       - "./config/s-ui/db:/app/db"
       - "./config/s-ui/cert:/app/cert"
-      - "./config/caddy/data:/caddy-cert:ro"
+      - "./config/caddy/data:/caddy-cert:ro" # Share Caddy’s certificates directory with s-ui container as read-only
     ports:
       - "2096:2096"
     entrypoint: ./entrypoint.sh

@@ -48,8 +48,6 @@ services:
       # /app/ssl/us.pm6422.site/us.pm6422.site.key
       # /app/ssl/us.pm6422.site/us.pm6422.site.crt
       - "./config/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory:/app/ssl:ro"
-    environment:
-      - TZ=Asia/Shanghai
     entrypoint: ./entrypoint.sh
     hostname: s-ui
     restart: unless-stopped

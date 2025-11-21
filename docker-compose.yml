@@ -41,8 +41,8 @@ services:
     image: alireza7/s-ui:v1.3.7
     container_name: s-ui
     volumes:
-      - ./config/s-ui/db:/app/db
-      - ./config/s-ui/cert:/app/cert
+      - $PWD/s-ui/db:/app/db
+      - $PWD/s-ui/cert:/app/cert
       - /root/alist/config/caddy/data:/caddy-cert:ro  # 将Caddy的证书目录共享给其他容器只读访问
     ports:
       - 2096:2096  # subscribe port

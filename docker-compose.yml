@@ -41,7 +41,7 @@ services:
     image: alireza7/s-ui:v1.3.7
     container_name: s-ui
     volumes:
-      - $PWD/caddy/data:/caddy-cert:ro  # 将Caddy的证书目录共享给其他容器只读访问
+      - $PWD/caddy/data:/caddy-cert  # 将Caddy的证书目录共享给其他容器只读访问
       - $PWD/s-ui/db:/app/db
       - $PWD/s-ui/cert:/app/cert
     ports:

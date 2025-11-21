@@ -40,13 +40,15 @@ services:
   s-ui:
     image: alireza7/s-ui:v1.3.7
     container_name: s-ui
+    ports:
+      - "2096:2096"
     volumes:
       - "./config/s-ui/db:/app/db"
       - "./config/s-ui/cert:/app/cert"
       # Share Caddy’s certificates directory with s-ui container as read-only
       - "./config/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory:/caddy-cert:ro"
-    ports:
-      - "2096:2096"
+    environment:
+      - TZ=Asia/Shanghai
     entrypoint: ./entrypoint.sh
     hostname: s-ui
     restart: unless-stopped

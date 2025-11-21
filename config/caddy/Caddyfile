@@ -3,8 +3,20 @@ alist.pm6422.site {
     reverse_proxy alist:5244
 }
 
-# S-UI web admin
+# S-UI web admin (2095)
 us.pm6422.site {
-    # web admin
-    reverse_proxy s-ui:2095
+    reverse_proxy 127.0.0.1:2095 {
+        header_up X-Forwarded-Proto https
+        header_up X-Forwarded-Host {host}
+        header_up X-Real-IP {remote}
+    }
+}
+
+# S-UI subscription port (2096)
+us.pm6422.site:2096 {
+    reverse_proxy 127.0.0.1:2096 {
+        header_up X-Forwarded-Proto https
+        header_up X-Forwarded-Host {host}
+        header_up X-Real-IP {remote}
+    }
 }

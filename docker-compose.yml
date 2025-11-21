@@ -40,8 +40,7 @@ services:
   s-ui:
     image: alireza7/s-ui:v1.3.7
     container_name: s-ui
-    ports:
-      - "2096:2096"
+    network_mode: "host"  # key configuration
     volumes:
       - "./config/s-ui/db:/app/db"
       - "./config/s-ui/cert:/app/cert"

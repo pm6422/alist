@@ -46,7 +46,7 @@ services:
       - "./config/s-ui/db:/app/db"
       - "./config/s-ui/cert:/app/cert"
       # Share Caddy’s certificates directory with s-ui container as read-only
-      - "./config/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory:/caddy-cert:ro"
+      - "./config/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/:/caddy-cert:ro"
     environment:
       - TZ=Asia/Shanghai
     entrypoint: ./entrypoint.sh

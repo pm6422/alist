@@ -128,7 +128,7 @@ show_info() {
     echo ""
     echo "Access URLs:"
     echo "  - Alist: https://alist.pm6422.site"
-    echo "  - S-UI: https://us.pm6422.site"
+    echo "  - S-UI: https://us.pm6422.site/app"
     echo ""
     echo "Management Commands:"
     echo "  # View service status"

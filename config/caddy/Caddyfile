@@ -3,7 +3,7 @@ alist.pm6422.site {
     reverse_proxy alist:5244
 }
 
-# S-UI web admin port (2095) - 使用主机网关IP
+# S-UI web admin port (2095) - Use docker gateway IP:172.17.0.1
 us.pm6422.site {
     reverse_proxy 172.17.0.1:2095 {
         header_up X-Forwarded-Proto https
@@ -12,7 +12,7 @@ us.pm6422.site {
     }
 }
 
-# S-UI subscription port (2096) - 使用主机网关IP
+# S-UI subscription port (2096) - Use docker gateway IP:172.17.0.1
 us.pm6422.site:2096 {
     reverse_proxy 172.17.0.1:2096 {
         header_up X-Forwarded-Proto https

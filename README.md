@@ -71,8 +71,15 @@ https://alist.yourdomain.com
 docker compose restart caddy
 ```
 
-### 6. Stop all Services
+### 7. Stop all Services
 ```bash
 
 docker compose down
 ```
+
+### 8. S-UI Configuration
+#### INTERFACE
+![Configuration 1](./images/1.png)
+
+#### SUBSCRIPTION
+![Configuration 2](./images/2.png)

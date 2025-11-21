@@ -47,7 +47,7 @@ services:
       # Share Caddy’s certificates directory with s-ui container as read-only, for example:
       # /app/ssl/us.pm6422.site/us.pm6422.site.key
       # /app/ssl/us.pm6422.site/us.pm6422.site.crt
-      - "./config/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory:/app/ssl:ro"
+#      - "./config/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory:/app/ssl:ro"
     environment:
       - TZ=Asia/Shanghai
     entrypoint: ./entrypoint.sh

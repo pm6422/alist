@@ -70,3 +70,9 @@ https://alist.yourdomain.com
 
 docker compose restart caddy
 ```
+
+### 6. Stop all Services
+```bash
+
+docker compose down
+```

@@ -6,9 +6,5 @@ alist.pm6422.site {
 # S-UI web admin
 us.pm6422.site {
     # web admin
-    reverse_proxy s-ui:2095 {
-        header_up X-Forwarded-Proto https
-        header_up X-Forwarded-Host {host}
-        header_up X-Real-IP {remote}
-    }
+    reverse_proxy s-ui:2095
 }

@@ -43,6 +43,8 @@ services:
     volumes:
       - ./config/s-ui/db:/app/db
       - ./config/s-ui/cert:/app/cert
+    ports:
+      - 2096:2096  # subscribe port
     entrypoint: ./entrypoint.sh
     hostname: s-ui
     restart: unless-stopped

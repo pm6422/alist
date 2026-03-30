@@ -53,6 +53,12 @@ The script will automatically:
 - Start all services
 - Configure SSL certificates
 
+### 5. View password of admin user
+```bash
+
+ocker exec -it s-ui /app/sui admin -show
+```
+
 ### 5. Set password of admin user
 ```bash
 

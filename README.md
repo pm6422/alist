@@ -59,8 +59,8 @@ The script will automatically:
 docker exec -it s-ui /app/sui admin -show
 
 First admin credentials:
-        Username:        shuitao123
-        Password:        shuitao123
+Username:        shuitao123
+Password:        shuitao123
 ```
 
 ### 5. Set password of admin user

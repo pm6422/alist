@@ -56,7 +56,11 @@ The script will automatically:
 ### 5. View password of admin user
 ```bash
 
-ocker exec -it s-ui /app/sui admin -show
+docker exec -it s-ui /app/sui admin -show
+
+First admin credentials:
+        Username:        shuitao123
+        Password:        shuitao123
 ```
 
 ### 5. Set password of admin user
